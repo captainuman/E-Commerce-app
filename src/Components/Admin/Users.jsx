@@ -8,7 +8,7 @@ const Users = () => {
 
     async function userdatas() {
         try{
-            const res = await axios ('http://localhost:5000/users')
+            const res = await axios ('https://e-commerce-app-backend-pi.vercel.app/users')
             const data = res.data
             setUserdata(data)
         }
@@ -18,10 +18,10 @@ const Users = () => {
     }
     userdatas()
   return (
-    <div className='bg-gray-200 h-screen overflow-auto'>
+    <div className='bg-[url("/images/bglogin3.avif")] h-screen overflow-auto bg-cover'>
         <button className='font-bold border px-5 py-1 rounded-3xl mt-5 ml-5 bg-emerald-900 text-amber-200 mb-10'><Link to='/adminpage'>Homepage</Link></button>
-    <div className='flex flex-wrap gap-5'>
-        
+
+    <div className='flex flex-wrap gap-5 px-10'>        
       {userdata.map((e)=>{
         return <div className='bg-yellow-500 border w-80 h-50 rounded-xl'>
             <h1 className='text-center font-bold text-2xl my-5'>{e.username}</h1>

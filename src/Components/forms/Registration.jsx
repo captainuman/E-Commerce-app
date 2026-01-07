@@ -64,7 +64,6 @@ const Registration = ({setActive , setData}) => {
                 headers:{"Content-Type" : "application/json"}
             }
         )
-        console.log(res.data)
         setErrors({});
         setActive(true)
         localStorage.setItem('formdata' , JSON.stringify(formData))

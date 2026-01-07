@@ -19,7 +19,6 @@ const Login = ({setActive}) => {
             e.preventDefault()
             const res = await axios("https://e-commerce-app-backend-pi.vercel.app/users")
             const data = res.data
-            console.log(data)
             data.find(function(e){
                 if(formData.email == e.email && formData.password == e.password){
                     setLove(false)

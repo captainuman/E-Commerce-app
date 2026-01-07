@@ -29,10 +29,10 @@ const Profile = () => {
   },[])
 
   return (
-    <div className='overflow-hidden flex border bg-gray-300 h-screen w-screen'>
+    <div className='overflow-hidden flex border bg-red-900 h-screen w-screen'>
       <Navbar/>
-      <div className='overflow-y-auto mt-15 p-10'>
-          <div className='h-50 overflow-hidden bg-white/50 flex gap-20 px-10 rounded-2xl'> 
+      <div className='overflow-y-auto mt-15 p-10 w-screen'>
+          <div className=' h-50 overflow-hidden bg-white/50 flex gap-20 px-10 rounded-2xl'> 
             <img className='w-40 self-center rounded-full bg-blue-400' src="images/home.png" alt="profile pic"/>
             <div className='flex gap-5 items-center'>
                 <div className='flex flex-col'>

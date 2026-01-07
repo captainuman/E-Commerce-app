@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useState } from 'react'
-import Adminnavbar from './Adminnavbar'
 import { Link } from 'react-router-dom'
 
 const Productcreation = () => {
@@ -30,9 +29,8 @@ const Productcreation = () => {
 
     const handlesubmit =async (e)=>{
         e.preventDefault()
-        console.log(itemdata)
         try{
-            const res = await axios.post("http://localhost:5000/data" , itemdata ,
+            const res = await axios.post("https://e-commerce-app-backend-pi.vercel.app/data" , itemdata ,
                 {
                     headers : {"Content-Type" : "application/json"}
                 }

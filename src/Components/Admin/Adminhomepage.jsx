@@ -9,21 +9,19 @@ const Adminhomepage = () => {
   const [orders ,setOrders] = useState([])
   const [cart , setCart] = useState([])
 
-  const [ordercompleted , setOrdercompleted] = useState([])
+  const [ordercompleted] = useState([])
 
   async function callingapi() {
     try{
-      const res = await axios("http://localhost:5000/users")
-      const product = await axios ("http://localhost:5000/data")
-      const order = await axios ("http://localhost:5000/orders")
-      const cart = await axios ("http://localhost:5000/cart")
+      const res = await axios("https://e-commerce-app-backend-pi.vercel.app/users")
+      const product = await axios ("https://e-commerce-app-backend-pi.vercel.app/data")
+      const order = await axios ("https://e-commerce-app-backend-pi.vercel.app/orders")
+      const cart = await axios ("https://e-commerce-app-backend-pi.vercel.app/cart")
       const userdata = res.data
       const productdata = product.data
       const orderdata = order.data
       const cartdata = cart.data
-      console.log(userdata);
       setProduct(productdata)
-      console.log(productdata);
       setUserdata(userdata)
       setCart(cartdata)
       setOrders(orderdata)
@@ -39,7 +37,7 @@ const Adminhomepage = () => {
   
 
   return (
-    <div className='bg-gray-300/50' >
+    <div className='bg-blue-300' >
         <Adminnavbar/>
         <div className='flex justify-around mt-10 items-center text-white flex-wrap gap-5'>
 

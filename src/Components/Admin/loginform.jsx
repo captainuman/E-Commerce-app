@@ -19,19 +19,15 @@ const Loginform = () => {
 
     async function handlesubmit(e){
         e.preventDefault()
-        console.log(FormData)
         try{
-            const res = await axios('http://localhost:5000/users')
+            const res = await axios('https://e-commerce-app-backend-pi.vercel.app/users')
             const data = res.data
-            console.log(data)
-            // data.find((e)=>{
                 if (FormData.username == "Numan" && FormData.email == "mdnuman2611@gmail.com" && FormData.password == "N123456789"){
                     setSuccess(true)
                 }
                 else{
                     alert('error details')
                 }
-            // })
         }
         catch (err) {
             console.log(err)  
