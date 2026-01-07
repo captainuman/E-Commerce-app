@@ -17,7 +17,7 @@ const Login = ({setActive}) => {
     async function handlesubmit(e){
         try{
             e.preventDefault()
-            const res = await axios("http://localhost:5000/users")
+            const res = await axios("https://e-commerce-app-backend-pi.vercel.app/users")
             const data = res.data
             console.log(data)
             data.find(function(e){

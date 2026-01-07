@@ -59,7 +59,7 @@ const Registration = ({setActive , setData}) => {
         try 
         {
         await schema.validate(formData, { abortEarly: false });
-        const res = await axios.post("http://localhost:5000/users" , formData,
+        const res = await axios.post("https://e-commerce-app-backend-pi.vercel.app/users" , formData,
             {
                 headers:{"Content-Type" : "application/json"}
             }
