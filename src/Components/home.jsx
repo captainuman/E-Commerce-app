@@ -4,11 +4,11 @@ import Navbar from './homepage/navbar'
 const Home = () => {
 
   return (
-   <div className='overflow-hidden bg-[url("/src/Components/data/bglogin.jpg")] bg-cover '>
+   <div className='overflow-hidden bg-[url("/images/bglogin.jpg")] bg-cover '>
     <Navbar/>
       <div className='h-screen pt-15 flex overflow-hidden justify-center items-center'>
         <div className=''>
-          <img className='w-600 h-150 rounded-full' src="/src/Components/data/mobileahop.jpeg" alt="fff" />
+          <img className='w-600 h-150 rounded-full' src="/images/mobileahop.jpeg" alt="fff" />
         </div>
 
         <div className='text-white flex flex-col justify-center items-center px-20'>
