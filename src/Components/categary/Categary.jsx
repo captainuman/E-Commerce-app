@@ -66,7 +66,7 @@ const Categary = () => {
         <hr/>
 
         <div className=' bg-gray-600'>
-          <h1 className='text-3xl font-bold pl-10 bg-gray-600'>Mobile Accessories</h1>
+          <h1 className='text-3xl font-bold pl-10 pt-5 bg-gray-600'>Mobile Accessories</h1>
            <div className="pt-5 w-screen h-fit flex overflow-auto px-7 bg-gray-600 rounded">
                     {Accessories.map((e) => (
                     <Link key={e.id} to={`/product/${e.id}`}>

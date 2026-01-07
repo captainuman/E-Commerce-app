@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className='fixed left-250 top-0 w-70 h-screen z-10 bg-gray-100'
             onClick={()=>setProfile(false)}>
                 <div className='flex gap-2 items-center h-15 w-fit px-10'>
-                    <img className='w-20 h-10' src="/images/home.png" alt="Captain"/>
+                    <img className='w-20 h-10' src="/images/mobileahop.jpeg" alt="Captain"/>
                     <h1 className='text-2xl font-bold'>Cell Zone</h1>
                 </div>
                 <ul className="flex flex-col gap-5 px-2 py-5">
@@ -44,7 +44,7 @@ const Navbar = () => {
     <div>
         <div className='fixed top-0 h-15 w-screen flex justify-between bg-gray-100/50 z-10'>
             <div className='flex gap-2 items-center h-15 w-fit px-10'>
-                <img className='w-20 h-10' src="/src/Components/data/home.png" alt="Captain"/>
+                <img className='w-20 h-10 rounded-full' src="/images/mobileahop.jpeg" alt="Captain"/>
                 <h1 className='text-2xl font-bold'>Cell Zone</h1>
             </div>
             <div>

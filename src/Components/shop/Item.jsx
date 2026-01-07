@@ -18,6 +18,7 @@ const ProductDisplay = () => {
       .catch(err=>console.log(err))
     },[])
 
+
   const formatted = new Date(
   new Date().setDate(new Date().getDate() + 7)
   ).toLocaleDateString("en-GB", {
@@ -36,12 +37,10 @@ const ProductDisplay = () => {
     return <h1>Item not found</h1>;
   }
 
-
   let discount = ((parseInt(product2.Discount)) / 100) * parseInt(product2.price)
+  
   let tverify = localStorage.getItem('user')
   let verify = JSON.parse(tverify)
-
-
 
   async function addtocart(){
     try{
@@ -54,7 +53,7 @@ const ProductDisplay = () => {
     else{
       setErrorlogin(true)
     }
-    const res = await axios.post("http://localhost:5000/cart" , cartdata,
+    const res = await axios.post("https://e-commerce-app-backend-pi.vercel.app/cart" , cartdata,
               {
                   headers:{"Content-Type" : "application/json"}
               }
@@ -90,7 +89,7 @@ const ProductDisplay = () => {
         else{
           setErrorlogin(true)
         }  
-        const res = await axios.post("http://localhost:5000/orders" , order,
+        const res = await axios.post("https://e-commerce-app-backend-pi.vercel.app/orders" , order,
               {
                   headers:{"Content-Type" : "application/json"}
               }
