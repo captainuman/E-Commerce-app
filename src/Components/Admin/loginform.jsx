@@ -39,7 +39,7 @@ const Loginform = () => {
     }
 
   return (
-    <div className='flex justify-center items-center bg-[url("/src/Components/data/bglogin.jpg")]  h-screen bg-cover bg-center overflow-auto'>
+    <div className='flex justify-center items-center bg-[url("/images/bglogin.jpg")]  h-screen bg-cover bg-center overflow-auto'>
 
       <form action="" onSubmit={handlesubmit}
         className='w-150 px-20 flex flex-col backdrop-blur-lg rounded-3xl bg-#0034C1/60 mt-30 mb-30'>

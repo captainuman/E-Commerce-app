@@ -62,7 +62,7 @@ const Login = ({setActive}) => {
     }
 
   return (
-    <div className='flex justify-center items-center bg-[url("/src/Components/data/bglogin.jpg")]  h-screen bg-cover bg-center overflow-auto'>
+    <div className='flex justify-center items-center bg-[url("/images/bglogin.jpg")]  h-screen bg-cover bg-center overflow-auto'>
 
         <div className='w-150 h-screen px-20 flex flex-col items-center justify-center'>
             <h1 className='text-white text-2xl'>Nice to see you again</h1>

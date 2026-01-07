@@ -5,7 +5,7 @@ const Adminnavbar = () => {
   return (
     <div className='flex bg-gray-400 justify-between items-center'>
       <div className='flex pl-5 w-100 gap-5'>
-          <img className='h-10 ' src="src/Components/data/home.png" alt="sdf" />
+          <img className='h-10 ' src="/images/home.png" alt="sdf" />
           <h1 className='text-4xl font-black'>Cell Zone</h1>
       </div>
       <ul className='flex justify-around items-center text-xl font-semibold text-amber-300 bg-gray-400 h-15 w-full ml-60'>
