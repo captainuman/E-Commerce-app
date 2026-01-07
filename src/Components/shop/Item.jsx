@@ -12,7 +12,7 @@ const ProductDisplay = () => {
    const [product , setProduct] = useState([])
    
     useEffect(()=>{
-      fetch('https://e-commerce-app-backend-pi.vercel.app/dataa')
+      fetch('https://e-commerce-app-backend-pi.vercel.app/data')
       .then(res=>res.json())
       .then(data=>setProduct(data))
       .catch(err=>console.log(err))
