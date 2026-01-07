@@ -1,19 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../homepage/navbar'
-import { Itemsdata } from '../data/api'
 import axios from 'axios'
 
 const Profile = () => {
 
-  const[profiledata ,setProfiledata] = useState([])
   const [orderdata , setOrderdata] = useState([])
   const [cdata , setCdata] = useState([])
 
+  const profiledata2 = localStorage.getItem('formdata')
+  const profiledata = JSON.parse(profiledata2)
+
   async function orderscalling() {
     try{
-      const res3 = await axios('http://localhost:5000/users')
-      const profiledata = res3.data
-      setProfiledata(profiledata)
       const res = await axios ('http://localhost:5000/orders')
       const orderdata = res.data
       const res2 = await axios ('http://localhost:5000/cart')
@@ -22,7 +20,7 @@ const Profile = () => {
       setCdata(cartdata)
     }
     catch (err){
-      console.log(err)
+      alert(err)
     }
   }
 
@@ -30,8 +28,6 @@ const Profile = () => {
     orderscalling()
   },[])
 
-  console.log(orderdata)
-  console.log(profiledata[0]?.username)
   return (
     <div className='overflow-hidden flex border bg-gray-300 h-screen w-screen'>
       <Navbar/>
@@ -40,8 +36,8 @@ const Profile = () => {
             <img className='w-40 self-center rounded-full bg-blue-400' src="images/home.png" alt="profile pic"/>
             <div className='flex gap-5 items-center'>
                 <div className='flex flex-col'>
-                  <h1 className='text-3xl font-semibold'>{profiledata[0]?.username}</h1>
-                  <h1 className='text-xl'>{profiledata[0]?.adress}</h1>
+                  <h1 className='text-3xl font-semibold'>{profiledata.username}</h1>
+                  <h1 className='text-xl'>{profiledata.adress}</h1>
                   <div className='flex gap-5 w-110 mt-5'>
                     <h1 className='text-xl border px-2 rounded'>Current orders : {orderdata.length}</h1>
                     <h1 className='text-xl border px-2 rounded'>Cart Items : {cdata.length}</h1>
@@ -51,10 +47,10 @@ const Profile = () => {
 
 
                 <div>
-                  <h1 className='text-xl'><span className='font-semibold mr-20'>Gmail: </span>{profiledata[0]?.email}</h1>
-                  <h1 className='text-xl'><span className='font-semibold mr-17'>Mobile: </span>{profiledata[0]?.mobile}</h1>
-                  <h1 className='text-xl'><span className='font-semibold mr-3'>Data-of-birth: </span>{profiledata[0]?.dob}</h1>
-                  <h1 className='text-xl'><span className='font-semibold mr-17'>Gender: </span>{profiledata[0]?.gender}</h1>
+                  <h1 className='text-xl'><span className='font-semibold mr-20'>Gmail: </span>{profiledata.email}</h1>
+                  <h1 className='text-xl'><span className='font-semibold mr-17'>Mobile: </span>{profiledata.mobile}</h1>
+                  <h1 className='text-xl'><span className='font-semibold mr-3'>Data-of-birth: </span>{profiledata.dob}</h1>
+                  <h1 className='text-xl'><span className='font-semibold mr-17'>Gender: </span>{profiledata.gender}</h1>
                   
                 </div>
             </div>

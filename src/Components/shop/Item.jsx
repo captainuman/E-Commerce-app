@@ -108,7 +108,7 @@ const ProductDisplay = () => {
         <div className="h-screen mt-15 w-100">
           {product2.images.map(function(e){
             return <div>
-              <img className="w-80 h-50 ml-10 mt-5" src={e} alt="Error Loading " />
+              <img className="w-80 h-50 ml-10 mt-5 rounded-2xl" src={e} alt="Error Loading " />
             </div>
           })}
         </div>

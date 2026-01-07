@@ -14,16 +14,14 @@ const Itemsdisplay = () => {
     .catch(err=>console.log(err))
   },[])
 
-  console.log(product)
-
   return (
     <div className='overflow-hidden'>
       <Navbar/>
-      <div className="pt-15 w-screen h-screen flex flex-wrap overflow-auto px-7 bg-[url('/src/Components/data/bglogin.jpg')] rounded">
+      <div className="pt-15 w-screen h-screen flex flex-wrap overflow-auto px-7 bg-[url('images/bglogin.jpg')] rounded">
           {product.map((e) => (
           <Link key={e.id} to={`/product/${e.id}`}>
             <div className="w-50 rounded h-90 m-5 bg-white px-4">
-              <img className='w-100 h-50 rounded-2xl py-4' src={e.images[0]} alt="sdf" />
+              <img className='w-100 h-50 rounded-full py-4' src={e.images[0]} alt="sdf" />
               <h1 className="text-center mb-2 font-black mt-2">{e.name}</h1>
               <h1 className="px-2 mb-2 font-semibold">Price : {e.price}</h1>
               <button className="mb-4 font-semibold bg-amber-300 px-10 py-2 rounded">Add to cart</button>
