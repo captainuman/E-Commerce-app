@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Adminnavbar from './Adminnavbar'
-import { Itemsdata } from '../data/api'
 import axios from 'axios'
 
 const Adminhomepage = () => {
@@ -79,8 +78,8 @@ const Adminhomepage = () => {
                 <div className='flex gap-5 h-50 rounded-2xl justify-center items-center'>
                   {orders.map(function(e,id){
                     return <div key={id} className='border h-50 w-45 bg-white rounded-2xl flex justify-center items-center flex-col'>
-                              <img className='border h-40 w-35 rounded-2xl' src={e[0].images[0]} alt={e.name} />
-                              <h1>{e[0].name}</h1>
+                              <img className='border h-40 w-35 rounded-2xl' src={e.images[0]} alt={e.name} />
+                              <h1>{e.name}</h1>
                            </div>
                        })
                   }
@@ -114,8 +113,8 @@ const Adminhomepage = () => {
                 <div className='flex gap-5 h-50 rounded-2xl justify-center items-center'>
                   {cart.map(function(e,id){
                     return <div key={id} className='border h-50 w-40 bg-white rounded-2xl flex justify-center items-center flex-col'>
-                              <img className='border h-40 w-35 rounded-2xl' src={e[0].images[0]} alt={e.name} />
-                              <h1>{e[0].name}</h1>
+                              <img className='border h-40 w-35 rounded-2xl' src={e.images[0]} alt={e.name} />
+                              <h1>{e.name}</h1>
                           </div>
                        })}
                 </div>

@@ -66,9 +66,8 @@ const Registration = ({setActive , setData}) => {
         )
         setErrors({});
         setActive(true)
-        localStorage.setItem('formdata' , JSON.stringify(formData))
         } 
-        catch (err) 
+        catch (err)
         {
             const newErrors = {};
             err.inner.forEach((error) => {
@@ -78,7 +77,6 @@ const Registration = ({setActive , setData}) => {
         }
         
         setData(formData)
-        localStorage.setItem('formdata',JSON.stringify(formData))
     }
 
     const handleChange = (e) => {

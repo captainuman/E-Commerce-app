@@ -21,16 +21,16 @@ const Navbar = () => {
             <div className='fixed left-250 top-0 w-70 h-screen z-10 bg-gray-100'
             onClick={()=>setProfile(false)}>
                 <div className='flex gap-2 items-center h-15 w-fit px-10'>
-                    <img className='w-20 h-10' src="/images/mobileahop.jpeg" alt="Captain"/>
+                    <img className='w-20 h-10 rounded-2xl' src="/images/mobileahop.jpeg" alt="Captain"/>
                     <h1 className='text-2xl font-bold'>Cell Zone</h1>
                 </div>
                 <ul className="flex flex-col gap-5 px-2 py-5">
-                    <li className="border">{users ? <Link to="/login">Log In</Link> : <Link to="/profile">Account</Link>}</li>
-                    <li className="border pl-2"><Link to='/'> Home </Link></li>
-                    <li className="border pl-2"><Link to='/shop'> Products</Link></li>
-                    <li className="border pl-2"> <Link to='/profile'>Orders</Link> </li>
-                    <li className="border pl-2"><Link to='/categary'>catrgories</Link></li>
-                    <li className="border pl-2">Contact us</li>
+                    <li className="pl-2">{users ? <Link to="/login">Log In</Link> : <Link to="/profile">Account</Link>}</li>
+                    <li className="pl-2"><Link to='/'> Home </Link></li>
+                    <li className="pl-2"><Link to='/shop'> Products</Link></li>
+                    <li className="pl-2"> <Link to='/profile'>Orders</Link> </li>
+                    <li className="pl-2"><Link to='/categary'>catrgories</Link></li>
+                    <li className="pl-2">Contact us</li>
                     <button
                          onClick={check} className='bg-red-500 self-center w-fit px-10  py-2 rounded-3xl'> <Link to='/'>log out</Link>
                     </button>

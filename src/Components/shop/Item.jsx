@@ -28,76 +28,82 @@ const ProductDisplay = () => {
   });
 
   const { id } = useParams();
-
   const product2 = product.find(
     (item) => item.id === id
   );
-
   if (!product2) {
     return <h1>Item not found</h1>;
   }
 
   let discount = ((parseInt(product2.Discount)) / 100) * parseInt(product2.price)
-  
   let tverify = localStorage.getItem('user')
   let verify = JSON.parse(tverify)
+  console.log(verify)
 
-  async function addtocart(){
-    try{
-      const itemsadding = cartdata
-      if (verify==false){
-      itemsadding.push(product2)
-      setOrder(itemsadding)
-      alert("Order has been added to Cart")
+  async function addtocart() {
+  try {
+    if (!verify) {
+      const updatedOrder = [...cartdata, product2];
+      setCartdata(updatedOrder);
+      await axios.post(
+        "https://e-commerce-app-backend-pi.vercel.app/cart",
+        product2,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      alert("Added to Cart successfully");
+    } 
+    else {
+      setErrorlogin(true);
     }
-    else{
-      setErrorlogin(true)
-    }
-    const res = await axios.post("https://e-commerce-app-backend-pi.vercel.app/cart" , cartdata,
-              {
-                  headers:{"Content-Type" : "application/json"}
-              }
-          )
-    }
-    catch (err){
-      console.log(err)
-    }
+  } 
+  catch (err) {
+    console.error("Failed to add order:", err);
   }
+}
 
+async function addtoorder() {
+  try {
+    if (!verify) {
+      const updatedOrder = [...order, product2];
+      setOrder(updatedOrder);
+      await axios.post(
+        "https://e-commerce-app-backend-pi.vercel.app/orders",
+        product2,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-  function Loginalert(){
-  return (
-    <div className="fixed left-100 top-30 bg-red-500 h-70 rounded-3xl w-fit px-10 flex flex-col items-center justify-center gap-20">
-      <h1 className="text-3xl text-amber-200">Please login first to continue</h1>
-      <button className="text-3xl bg-blue-200 w-fit px-10 py-2 rounded-4xl">click here to Login</button>
-    </div>
-  )
+      alert("Order placed successfully");
+    } 
+    else {
+      setErrorlogin(true);
+    }
+  } 
+  catch (err) {
+    console.error("Failed to add order:", err);
   }
+}
+
+
+    function Loginalert(){
+      return (
+        <div className="fixed left-100 top-30 bg-red-500 h-70 rounded-3xl w-fit px-10 flex flex-col items-center justify-center gap-20">
+          <h1 className="text-3xl text-amber-200">Please login first to continue</h1>
+          <button className="text-3xl bg-blue-200 w-fit px-10 py-2 rounded-4xl">click here to Login</button>
+        </div>
+      )
+    }
 
   function remover(){
     setErrorlogin(false)
-  }
-
-  async function addtoorder(){
-    try{
-        const itemsadding = order
-        if (verify==false){
-          itemsadding.push(product2)
-          setCartdata(itemsadding)
-          alert("ored has been shipped")
-        }
-        else{
-          setErrorlogin(true)
-        }  
-        const res = await axios.post("https://e-commerce-app-backend-pi.vercel.app/orders" , order,
-              {
-                  headers:{"Content-Type" : "application/json"}
-              }
-          )
-      }
-    catch (err){
-      console.log(err)
-    }
   }
 
   let quantity = parseInt(product2.quantity)

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Navbar from '../homepage/navbar'
 import axios from 'axios'
 
@@ -12,9 +12,9 @@ const Profile = () => {
 
   async function orderscalling() {
     try{
-      const res = await axios ('http://localhost:5000/orders')
+      const res = await axios ('https://e-commerce-app-backend-pi.vercel.app/orders')
       const orderdata = res.data
-      const res2 = await axios ('http://localhost:5000/cart')
+      const res2 = await axios ('https://e-commerce-app-backend-pi.vercel.app/cart')
       const cartdata = res2.data
       setOrderdata(orderdata)
       setCdata(cartdata)
@@ -27,7 +27,9 @@ const Profile = () => {
   useEffect(()=>{
     orderscalling()
   },[])
-
+  console.log(cdata)
+  console.log(orderdata);
+  
   return (
     <div className='overflow-hidden flex border bg-red-900 h-screen w-screen'>
       <Navbar/>
@@ -63,8 +65,8 @@ const Profile = () => {
                 <div className='flex gap-5 h-50 rounded-2xl justify-center items-center'>
                   {cdata.map(function(e,id){
                     return <div key={id} className='border h-50 w-45 bg-white/50 rounded-2xl flex justify-center items-center flex-col'>
-                            <img className='border h-40 rounded-2xl' src={e[0].images[0]} alt={e[0].name} />
-                            <h1>{e[0].name}</h1>
+                            <img className='border h-40 w-35 rounded-2xl' src={e.images[0]} alt={e.name} />
+                            <h1>{e.name}</h1>
                           </div>
                        })}
                 </div>
@@ -82,8 +84,8 @@ const Profile = () => {
                 <div className='flex gap-5 h-50 rounded-2xl justify-center items-center'>
                   {orderdata.map(function(e,id){
                     return <div key={id} className='border h-50 w-45 bg-white/50 rounded-2xl flex justify-center items-center flex-col'>
-                              <img className='border h-40 w-35 rounded-2xl' src={e[0].images[0]} alt={e.name} />
-                              <h1>{e[0].name}</h1>
+                              <img className='border h-40 w-35 rounded-2xl' src={e.images[0]} alt={e.name} />
+                              <h1>{e.name}</h1>
                           </div>
                        })}
                 </div>

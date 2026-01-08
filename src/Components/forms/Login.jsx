@@ -20,6 +20,7 @@ const Login = ({setActive}) => {
             const res = await axios("https://e-commerce-app-backend-pi.vercel.app/users")
             const data = res.data
             data.find(function(e){
+                localStorage.setItem('formdata' , JSON.stringify(e))
                 if(formData.email == e.email && formData.password == e.password){
                     setLove(false)
                     localStorage.setItem('user' , JSON.stringify(false))
